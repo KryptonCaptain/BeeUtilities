@@ -1,0 +1,17 @@
+[
+{
+  "modid": "beeUtilities",
+  "name": "Bee Utilities",
+  "description": "Add more utility to your bees.",
+  "version": "${version}",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["KryptonCaptain"],
+  "credits": "GTNH for the inspiration",
+  "logoFile": "",
+  "requiredMods": [ "forestry" ],
+  "screenshots": [],
+  "dependencies": []
+}
+]

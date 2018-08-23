@@ -1,0 +1,17 @@
+
+# Util
+util.warp=Warp
+util.warp.perm=Permanent warp
+util.warp.sticky=Sticky warp
+util.warp.temp=Temporary warp
+
+
+util.shift=Press SHIFT for details
+
+util.durability=Durability: 
+util.territory=Territory: 
+util.mutation=Mutation Rate: 
+util.lifespan=Lifespan: 
+util.production=Production: 
+util.flowering=Pollination: 
+util.decay=Genetic Decay: 
