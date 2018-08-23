@@ -1,10 +1,6 @@
 package beeUtilities;
 
-import java.io.File;
-
-import net.minecraftforge.common.MinecraftForge;
 import beeUtilities.core.IProxy;
-import beeUtilities.settings.ConfigHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -28,7 +24,6 @@ public class BeeUtilities
     
     @Mod.EventHandler
     public void preInit(final FMLPreInitializationEvent event) {
-        ConfigHandler.init(new File(event.getModConfigurationDirectory() + File.separator + "BeeUtilities.cfg"));
         
         BeeUtilities.proxy.preInit(event);
         
@@ -36,15 +31,12 @@ public class BeeUtilities
     
     @Mod.EventHandler
     public void init(final FMLInitializationEvent event) {
-        MinecraftForge.EVENT_BUS.register(new ConfigHandler());
                
         BeeUtilities.proxy.init(event);
     }
     
     @Mod.EventHandler
     public void postInit(final FMLPostInitializationEvent event) {
-    	
-    	ModCompat.init();
     	
     	/*
     	if (ConfigHandler.noStepOnGuardian)

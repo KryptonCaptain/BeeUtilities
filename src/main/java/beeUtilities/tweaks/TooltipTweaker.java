@@ -5,25 +5,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import beeUtilities.settings.ConfigHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import forestry.api.apiculture.IBeeModifier;
 import forestry.api.apiculture.IHiveFrame;
 
 @SideOnly(Side.CLIENT)
 public class TooltipTweaker
 {
-    
-    
-    private static boolean display() {
-        return ConfigHandler.tweakVisAmuletTooltip;
-    }
-        
-    
-    
-    
     
     @SubscribeEvent
     public void tooltipEvent(ItemTooltipEvent event) {
@@ -34,7 +23,6 @@ public class TooltipTweaker
     		
     		IHiveFrame item = (IHiveFrame)stack.getItem();
         	
-    		
     		event.toolTip.add(EnumChatFormatting.GRAY + StatCollector.translateToLocal("util.shift") );
     		if (GuiScreen.isShiftKeyDown()) {
     			
@@ -46,22 +34,8 @@ public class TooltipTweaker
     			event.toolTip.add(EnumChatFormatting.DARK_GRAY + StatCollector.translateToLocal("util.flowering") + EnumChatFormatting.GRAY + "x" + this.getFlowering(stack) );
     			event.toolTip.add(EnumChatFormatting.DARK_GRAY + StatCollector.translateToLocal("util.decay") + EnumChatFormatting.GRAY + "x" + this.getGeneticDecay(stack) );
     			
-    			
-    			//event.toolTip.add(EnumChatFormatting.DARK_GRAY + StatCollector.translateToLocal("util.durability") + (getDurability(stack)<1 ? EnumChatFormatting.DARK_RED : EnumChatFormatting.GREEN) + this.getDurability(stack) );
-    		}
-    		
-    		
+			}	
     	}
-    	/*
-    	int charge = getFinalCharge(event.itemStack);
-    	if (charge > 0) {
-    		event.toolTip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.runic.charge") + " +" + charge);
-		}
-    	int warp = getFinalWarp(event.itemStack, event.entityPlayer);
-    	if (warp > 0) {
-    		event.toolTip.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal("item.warping") + " " + warp);
-    	}
-    	*/
     }
     
     public static int getDurability(ItemStack stack) {
@@ -121,32 +95,5 @@ public class TooltipTweaker
     	float val = item.getBeeModifier().getGeneticDecay(null, 1.0f);
     	return val;
     }
-    
-    
-    /*
-    public static int getFinalCharge(ItemStack stack)
-    {
-      if (!(stack.getItem() instanceof IRunicArmor)) {
-        return 0;
-      }
-      IRunicArmor armor = (IRunicArmor)stack.getItem();
-      int base = armor.getRunicCharge(stack);
-      if ((stack.hasTagCompound()) && (stack.stackTagCompound.hasKey("RS.HARDEN"))) {
-        base += stack.stackTagCompound.getByte("RS.HARDEN");
-      }
-      return base;
-    }
-    
-    public static int getFinalWarp(ItemStack stack, EntityPlayer player)
-    {
-      if ((stack == null) || (!(stack.getItem() instanceof IWarpingGear))) {
-        return 0;
-      }
-      IWarpingGear armor = (IWarpingGear)stack.getItem();
-      return armor.getWarp(stack, player);
-    }
-    */
-    
-    
-    
+     
 }
