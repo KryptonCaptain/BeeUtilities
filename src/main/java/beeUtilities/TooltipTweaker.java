@@ -1,14 +1,19 @@
-package beeUtilities.tweaks;
+package beeUtilities;
 
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import forestry.api.apiculture.IHiveFrame;
+
+@Optional.InterfaceList({
+	@Optional.Interface(modid = "forestry", iface = "forestry.api.apiculture.IHiveFrame")
+})
 
 @SideOnly(Side.CLIENT)
 public class TooltipTweaker
